@@ -146,7 +146,7 @@ let rangeObject = {
 // Функція "useSymbolIterator" використовує ітератор для отримання значень об'єкта
 function useSymbolIterator(obj) {
   let result = [];
-  for(let num of rangeObject){
+  for(let num of obj){
     result.push(num)
   }
   return result
@@ -175,12 +175,12 @@ let myObject = {
     return this;
   },
   next(){
-    if(this.currentIndex < category.length){
-     return done = false, value = this.category.name[this.categoryIndex++]
+    if(this.currentIndex < this.category.length){
+     return {done: false, value: this.category[this.currentIndex++].name}
     };
     {
-      if(this.currentIndex >= category.length){
-        return done = true;
+      if(this.currentIndex >= this.category.length){
+        return {done: true};
       }
     }; 
   },
